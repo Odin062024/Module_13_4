@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Lista książek{% endblock %}
+
+{% block content %}
+    <h2>Lista książek</h2>
+    <a href="{{ url_for('add_book') }}">Dodaj nową książkę</a>
+    <ul>
+        {% for book in books %}
+            <li>
+                <strong>{{ book.title }}</strong> ({{ book.year_published }}) - 
+                {% if book.on_shelf %}
+                    <a href="{{ url_for('borrow_book', book_id=book.id) }}">Wypożycz</a>
+                {% else %}
+                    Wypożyczona
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

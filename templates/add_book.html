@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Dodaj książkę{% endblock %}
+
+{% block content %}
+    <h2>Dodaj książkę</h2>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.title.label }} {{ form.title() }}<br>
+        {{ form.isbn.label }} {{ form.isbn() }}<br>
+        {{ form.year_published.label }} {{ form.year_published() }}<br>
+        {{ form.submit() }}
+    </form>
+{% endblock %}
